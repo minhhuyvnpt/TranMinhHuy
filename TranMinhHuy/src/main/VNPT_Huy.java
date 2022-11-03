@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class VNPT_Thang {
+public class VNPT_Huy {
 
     public String hash;
     public String previousHash;
@@ -11,7 +11,7 @@ public class VNPT_Thang {
     public int nonce;
 
     //Block Constructor.
-    public VNPT_Thang(String previousHash ) {
+    public VNPT_Huy(String previousHash ) {
         this.previousHash = previousHash;
         this.timeStamp = new Date().getTime();
 
