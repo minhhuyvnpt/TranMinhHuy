@@ -6,7 +6,7 @@ import java.util.HashMap;
 //import java.util.Map;
 import java.util.Scanner;
 
-public class VQT_BlockChain {
+public class TMH_BlockChain {
 
     public static ArrayList<VNPT_Thang> blockchain = new ArrayList<VNPT_Thang>();
     public static HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>();
@@ -60,12 +60,12 @@ public class VQT_BlockChain {
          UTXOs.put(genesisTransaction2.outputs.get(0).id, genesisTransaction2.outputs.get(0)); //Lưu giao dịch đầu tiên vào danh sách UTXOs.
 
         System.out.println("Đang tạo và đào khối gốc .... ");
-        VNPT_Thang genesis = new VNPT_Thang("0");
+        VNPT_Huy genesis = new VNPT_Thang("0");
         genesis.addTransaction(genesisTransaction);
         genesis.addTransaction(genesisTransaction2);
         addBlock(genesis);
   
-        VNPT_Thang block1 = new VNPT_Thang(genesis.hash);
+        VNPT_Huy block1 = new VNPT_Thang(genesis.hash);
         System.out.println("\nSố lượng điện thoại trong kho A là : " + storeA.getBalance());
         System.out.println("\nSố lượng điện thoại trong kho B là : " + storeB.getBalance());
         System.out.println("\nGiao dịch chuyển " + sl + " điện thoại từ kho A sang kho B...");
@@ -91,8 +91,8 @@ public class VQT_BlockChain {
     }
 
     public static Boolean isChainValid() {
-        VNPT_Thang currentBlock;
-        VNPT_Thang previousBlock;
+        VNPT_Huy currentBlock;
+        VNPT_Huy previousBlock;
         String hashTarget = new String(new char[difficulty]).replace('\0', '0');
         HashMap<String,TransactionOutput> tempUTXOs = new HashMap<String,TransactionOutput>(); //Tạo một danh sách hoạt động tạm thời của các giao dịch chưa được thực thi tại một trạng thái khối nhất định.
         tempUTXOs.put(genesisTransaction.outputs.get(0).id, genesisTransaction.outputs.get(0));
@@ -168,7 +168,7 @@ public class VQT_BlockChain {
         return true;
     }
 
-    public static void addBlock(VNPT_Thang newBlock) {
+    public static void addBlock(VNPT_Huy newBlock) {
         newBlock.mineBlock(difficulty);
         blockchain.add(newBlock);
     }
