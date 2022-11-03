@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class TMH_BlockChain {
 
-    public static ArrayList<VNPT_Thang> blockchain = new ArrayList<VNPT_Thang>();
+    public static ArrayList<VNPT_Huy> blockchain = new ArrayList<VNPT_Huy>();
     public static HashMap<String,TransactionOutput> UTXOs = new HashMap<String,TransactionOutput>();
 
     public static int difficulty = 3;
@@ -60,12 +60,12 @@ public class TMH_BlockChain {
          UTXOs.put(genesisTransaction2.outputs.get(0).id, genesisTransaction2.outputs.get(0)); //Lưu giao dịch đầu tiên vào danh sách UTXOs.
 
         System.out.println("Đang tạo và đào khối gốc .... ");
-        VNPT_Huy genesis = new VNPT_Thang("0");
+        VNPT_Huy genesis = new VNPT_Huy("0");
         genesis.addTransaction(genesisTransaction);
         genesis.addTransaction(genesisTransaction2);
         addBlock(genesis);
   
-        VNPT_Huy block1 = new VNPT_Thang(genesis.hash);
+        VNPT_Huy block1 = new VNPT_Huy(genesis.hash);
         System.out.println("\nSố lượng điện thoại trong kho A là : " + storeA.getBalance());
         System.out.println("\nSố lượng điện thoại trong kho B là : " + storeB.getBalance());
         System.out.println("\nGiao dịch chuyển " + sl + " điện thoại từ kho A sang kho B...");
