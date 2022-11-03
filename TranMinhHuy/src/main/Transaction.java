@@ -32,13 +32,13 @@ public class Transaction {
 
         //Thu thập các đầu vào cùa giao dịch chưa được thực thi
         for(TransactionInput i : inputs) {
-            i.UTXO =VQT_BlockChain.UTXOs.get(i.transactionOutputId);
+            i.UTXO =TMH_BlockChain.UTXOs.get(i.transactionOutputId);
         }
 
         //Kiểm tra giao dịch hợp lệ
-        if(getInputsValue() < VQT_BlockChain.minimumTransaction) {
+        if(getInputsValue() < TMH_BlockChain.minimumTransaction) {
             System.out.println("Đầu vào của giao dịch quá bé: " + getInputsValue());
-            System.out.println("Vui lòng nhập số tiền giao dịch lớn hơn " + VQT_BlockChain.minimumTransaction);
+            System.out.println("Vui lòng nhập số tiền giao dịch lớn hơn " + TMH_BlockChain.minimumTransaction);
             return false;
         }
 
